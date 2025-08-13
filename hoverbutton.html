@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codeokeif - hover-btn</title>
+  </head>
+  <style>
+    body {
+      background: linear-gradient(135deg, #292929, #000000);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+
+    .glass-btn {
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      color: white;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .glass-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(116, 113, 113, 0.6);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #2c2c3f;
+      color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      transform: scale(0.8);
+      transition: transform 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      background: #ff5e5e;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #ff3e3e;
+    }
+  </style>
+  <body>
+    <button class="glass-btn" onclick="toggleModal()">Click Me</button>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>Modal Title</h2>
+        <p>This is a beautiful animated modal box!</p>
+        <button class="close-btn" onclick="toggleModal()">Close</button>
+      </div>
+    </div>
+    <script>
+      function toggleModal() {
+        document.getElementById("modal").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
